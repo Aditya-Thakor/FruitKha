@@ -103,6 +103,10 @@ export default function Navbar() {
                                 <div className="fw-bold text-truncate">{activeUser.name}</div>
                                 <div className="text-muted text-truncate" style={{ fontSize: '0.75rem' }}>{activeUser.email}</div>
                             </div>
+                            <Link to="/admin" className="user-dropdown-item text-white" onClick={() => setShowDropdown(false)}>
+                                <i className="fa-solid fa-gauge-high"></i>
+                                Admin Panel
+                            </Link>
                             <button className="user-dropdown-item text-danger" onClick={handleLogout}>
                                 <i className="fa-solid fa-right-from-bracket"></i>
                                 Logout
@@ -114,6 +118,10 @@ export default function Navbar() {
                         <i className="fa-regular fa-user"></i>
                     </Link>
                 )}
+
+                {/* <Link to="/admin" className="ms-4 text-white" style={{ fontSize: '1.15rem' }} title="Admin Panel">
+                    <i className="fa-solid fa-gauge-high"></i>
+                </Link> */}
             </div>
         </nav>
     )

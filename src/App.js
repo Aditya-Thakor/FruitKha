@@ -12,6 +12,11 @@ import NotFound from './pages/404/NotFound';
 import Login from './pages/Login/Login';
 import Register from './pages/Register/Register';
 
+import AdminLayout from './pages/Admin/AdminLayout';
+import AdminDashboard from './pages/Admin/AdminDashboard';
+import AdminProducts from './pages/Admin/AdminProducts';
+import AdminUsers from './pages/Admin/AdminUsers';
+
 function App() {
 
   //  npm i react-router-dom 
@@ -29,15 +34,17 @@ function App() {
             <Route path='/products/product/:pdt' element={<ProductPage/>} />
             <Route path='/login' element={<Login/>} />
             <Route path='/register' element={<Register/>} />
-        </Route>    
-            <Route path='/:page' element={<NotFound/>} />  
-            <Route path='*' element={<NotFound/>}   /> 
-            {/* <Route path='/404' element={<NotFound/>} /> */}
-        {/* <Route path='/admin' element={<AdminLayout/>}>
-          <Route path='' element={<AdminDashboard/>}/>
-          <Route path='/add' element={<AddItem/>}/>
-          <Route path='/addCate' element={<AddCate/>}/>
-        </Route> */}
+        </Route>
+
+        {/* Admin Panel */}
+        <Route path='/admin' element={<AdminLayout/>}>
+          <Route index element={<AdminDashboard/>} />
+          <Route path='products' element={<AdminProducts/>} />
+          <Route path='users' element={<AdminUsers/>} />
+        </Route>
+
+        <Route path='/:page' element={<NotFound/>} />  
+        <Route path='*' element={<NotFound/>}   /> 
 
         {/* <Route path='/' element={<Home/>} />
         <Route path='/shop' element={<Shop/>} />

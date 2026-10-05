@@ -91,7 +91,9 @@ nav {
   color: #f28123;
 }
 
-.active {
+/* Scope navbar active link styles so global .active doesn't conflict with admin or bootstrap */
+nav a.active,
+#navbar a.active {
   color: #f28123 !important;
 }
 
