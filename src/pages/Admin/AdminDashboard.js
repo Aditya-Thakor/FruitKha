@@ -23,7 +23,7 @@ export default function AdminDashboard() {
   const attentionList = [...outOfStockList, ...lowStockList];
 
   const totalStockKg = products.reduce((acc, p) => acc + (parseInt(p.stock) || 0), 0);
-  const averagePrice = totalProducts > 0 
+  const averagePrice = totalProducts > 0
     ? (products.reduce((acc, p) => acc + (parseFloat(p.price) || 0), 0) / totalProducts).toFixed(2)
     : '0.00';
 
@@ -89,8 +89,8 @@ export default function AdminDashboard() {
             <span>Add New Fruit</span>
           </Link>
           {attentionList.length > 0 && (
-            <button 
-              onClick={handleRestockAllAttention} 
+            <button
+              onClick={handleRestockAllAttention}
               className="btn-admin-secondary"
               title="Restock all low/out-of-stock items by +25 Kg"
             >
@@ -236,19 +236,19 @@ export default function AdminDashboard() {
 
               {/* Table Quick Filters */}
               <div className="admin-table-filters">
-                <button 
+                <button
                   className={`btn-table-tab ${filterMode === 'all' ? 'active' : ''}`}
                   onClick={() => setFilterMode('all')}
                 >
                   All ({products.length})
                 </button>
-                <button 
+                <button
                   className={`btn-table-tab ${filterMode === 'attention' ? 'active' : ''}`}
                   onClick={() => setFilterMode('attention')}
                 >
                   Needs Stock ({attentionList.length})
                 </button>
-                <button 
+                <button
                   className={`btn-table-tab ${filterMode === 'instock' ? 'active' : ''}`}
                   onClick={() => setFilterMode('instock')}
                 >
@@ -273,18 +273,18 @@ export default function AdminDashboard() {
                   {displayProducts.slice(0, 6).map(product => {
                     const stockNum = parseInt(product.stock) || 0;
                     const stockGaugePct = Math.min(100, Math.round((stockNum / 60) * 100));
-                    const statusClass = 
+                    const statusClass =
                       product.status === 'In Stock' ? 'in-stock' :
-                      product.status === 'Low Stock' ? 'low-stock' : 'out-of-stock';
+                        product.status === 'Low Stock' ? 'low-stock' : 'out-of-stock';
 
                     return (
                       <tr key={product.id}>
                         <td>
                           <div className="d-flex align-items-center gap-3">
-                            <img 
-                              src={product.image} 
-                              alt={product.name} 
-                              className="product-thumb" 
+                            <img
+                              src={product.image}
+                              alt={product.name}
+                              className="product-thumb"
                               onError={(e) => {
                                 e.target.src = 'https://images.unsplash.com/photo-1619566636858-adf3ef46400b?auto=format&fit=crop&w=100&q=80';
                               }}
@@ -306,7 +306,7 @@ export default function AdminDashboard() {
                           <div className="stock-level-indicator">
                             <span style={{ fontWeight: 600, minWidth: '45px' }}>{product.stock} {product.unit || 'Kg'}</span>
                             <div className="stock-level-bar" title={`${product.stock} Kg on hand`}>
-                              <div 
+                              <div
                                 className={`stock-level-bar-fill ${statusClass}`}
                                 style={{ width: `${stockGaugePct}%` }}
                               ></div>
@@ -320,8 +320,8 @@ export default function AdminDashboard() {
                           </span>
                         </td>
                         <td style={{ textAlign: 'right' }}>
-                          <Link 
-                            to="/admin/products" 
+                          <Link
+                            to="/admin/products"
                             className="btn-table-action"
                             title="Edit product in Catalog Manager"
                           >

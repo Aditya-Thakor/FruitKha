@@ -163,7 +163,7 @@ export default function AdminProducts() {
           >
             <option value="All">All Statuses</option>
             <option value="In Stock">In Stock</option>
-            <option value="Low Stock">Low Stock</option>
+            {/* <option value="Low Stock">Low Stock</option> */}
             <option value="Out of Stock">Out of Stock</option>
           </select>
 
@@ -305,13 +305,15 @@ export default function AdminProducts() {
                       value={formData.category}
                       onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                     >
-                      <option value="Berries">Berries</option>
+                      <option value="fruit">Fruit</option>
+                      <option value="vegetable">Vegetable</option>
+                      {/* <option value="Berries">Berries</option>
                       <option value="Citrus">Citrus</option>
                       <option value="Tropical">Tropical</option>
                       <option value="Melons">Melons</option>
                       <option value="Pome">Pome</option>
                       <option value="Stone Fruit">Stone Fruit</option>
-                      <option value="Organic Exotic">Organic Exotic</option>
+                      <option value="Organic Exotic">Organic Exotic</option> */}
                     </select>
                   </div>
 
